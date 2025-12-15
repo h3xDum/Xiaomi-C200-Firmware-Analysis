@@ -5,7 +5,7 @@ set of exposed pins / test pads, using U-Boot to gain root on an early stage and
 loading & dumping the firmware   
 
 
-## Initial Recon  
+## Initial Reconnaissance
 ![pcb](images/Initial_pcb.png)
 There are a few key things clear from the PCB 
 * Chip →T31 Ingenic Processor 
@@ -30,5 +30,23 @@ Now we just need to find ground on the board, and connect
 * Rx → Tx
 * GND → GND  
  
-I Used some PCBite probes & USB 2 TTL Adapter for this setup  
+I Used some PCBite probes & USB 2 TTL Adapter for this setup   
 ![pcb_uart](images/pcb_uart.png)
+
+
+## U-Boot & Root & Firmware 
+Now we can use `minicom` to get a the UART shell we are after 
+```bash
+sudo minicom -b 115200 /dev/ttyUSB0
+```
+If nothing is done, then i only saw the boot logs and didn't get a shell at the end of  
+booting process, so i had to interrupt U-Boot by pressing enter immediately.  
+When getting a U-Boot shell i firstly printed the environment args  
+![U-Boot_1](images/UBOOT_PRINTENV_1.png)
+
+
+hii 
+
+
+
+![pcb](images/Initial_pcb.png) 
