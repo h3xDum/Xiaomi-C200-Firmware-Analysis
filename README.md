@@ -6,8 +6,17 @@ loading & dumping the firmware
 
 
 ## Initial Recon  
-Opening up the camera shows some  some obvious candidates for a straightforward  
-UART access, there are 4 test pads in a row that seems to be the Tx Rx Ground and  
-power, but testing it with a multimeter gave the wrong readings, i gave a few of them  
-in the picture for some context 
 ![pcb](images/Initial_pcb.png)
+There are a few key things clear from the PCB 
+* Chip →T31 Processor 
+* Flash Memory → SOIC-8 SPI NOR type 
+* Potential UART test pads  
+
+First i went for the obvious candidates for a straightforward UART access,  
+there are 4 test pads in a row that seems to be the Tx Rx Ground and power,  
+but testing it with a multimeter gave the wrong readings as seen in the picture.  
+I tried most of the other test pads and still could not find the correct reading so i had  
+to switch strategy 
+
+### Getting a foothold 
+since 
