@@ -8,7 +8,7 @@ loading & dumping the firmware
 ## Initial Recon  
 ![pcb](images/Initial_pcb.png)
 There are a few key things clear from the PCB 
-* Chip →T31 Processor 
+* Chip →T31 Ingenic Processor 
 * Flash Memory → SOIC-8 SPI NOR type 
 * Potential UART test pads  
 
@@ -18,5 +18,16 @@ but testing it with a multimeter gave the wrong readings as seen in the picture.
 I tried most of the other test pads and still could not find the correct reading so i had  
 to switch strategy 
 
-### Getting a foothold 
-since 
+## Getting a foothold 
+since there are no connectors left on the board nor any test pads that can help  
+i decided to go through the source, connecting to the processor pins and getting  
+a connection that way, i pulled the datasheet for that processor and identified  
+the UART protocol pins  
+![T31](images/T31.png)
+
+Now all that is left is to find a ground on the board, and connect 
+* Tx → Rx
+* Rx → Tx
+* GND → GND
+I Used some PCBite probes & USB 2 TTL Adapter for this setup  
+![pcb_uart](images/pcb_uart.png)
