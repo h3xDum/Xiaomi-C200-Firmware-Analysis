@@ -43,3 +43,6 @@ If nothing is done, i only got the  boot logs and no shell at the end of the boo
 so i had to interrupt U-Boot by pressing enter immediately.  
 When getting a U-Boot shell i firstly printed the environment args  
 ![U-Boot_1](images/UBOOT_PRINTENV_1.png)
+The thing important to us are
+* bootargs →show the init command is to run the linuxrc binary & firmware layout  (partitions and their purpose /size/slots)
+* bootcmd → The command to load the memory from flash to ROM and boot the device 
