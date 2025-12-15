@@ -1,10 +1,12 @@
 # Xiaomi-C200-Firmware-Analysis
 
 ## The Scope 
-In this repo i will show how i got access to the UART  interface even without the common
-set of exposed pins / test pads, using U-Boot to gain root on an early stage and eventually 
+In this repo i will show how i got access to the UART  interface even without the common  
+set of exposed pins / test pads, using U-Boot to gain root on an early stage and eventually  
 loading & dumping the firmware 
 ### Initial Recon
-After opening up the camera, i was greeted with a PCB that seemed to have 
-some obvious candidates for a straightforward UART access
-![[Intial_pcb.png]]
+Opening up the camera shows some  some obvious candidates for a straightforward  
+UART access, there are 4 test pads in a row that seems to be the Tx Rx Ground and  
+power, but testing it with a multimeter gave the wrong readings, i gave a few of them  
+in the picture for some context 
+![pcb](docs/images/Initial_pcb.png)
