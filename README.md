@@ -3,7 +3,8 @@
 ## The Scope 
 In this repo i will show how i got access to the UART  interface even without the common  
 set of exposed pins / test pads, using U-Boot to gain root on an early stage and eventually  
-loading & dumping the firmware 
+loading & dumping the firmware   
+
 
 #### ***Initial Recon***  
 Opening up the camera shows some  some obvious candidates for a straightforward  
