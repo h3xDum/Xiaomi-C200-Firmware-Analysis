@@ -9,4 +9,4 @@ Opening up the camera shows some  some obvious candidates for a straightforward
 UART access, there are 4 test pads in a row that seems to be the Tx Rx Ground and  
 power, but testing it with a multimeter gave the wrong readings, i gave a few of them  
 in the picture for some context 
-![pcb](images/initial_pcb.png)
+![pcb](images/Initial_pcb.png)
