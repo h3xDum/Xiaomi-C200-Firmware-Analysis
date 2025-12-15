@@ -25,9 +25,10 @@ a connection that way, i pulled the datasheet for that processor and identified
 the UART protocol pins  
 ![T31](images/T31.png)
 
-Now all that is left is to find a ground on the board, and connect 
+Now we just need to find ground on the board, and connect 
 * Tx → Rx
 * Rx → Tx
-* GND → GND
+* GND → GND  
+ 
 I Used some PCBite probes & USB 2 TTL Adapter for this setup  
 ![pcb_uart](images/pcb_uart.png)
