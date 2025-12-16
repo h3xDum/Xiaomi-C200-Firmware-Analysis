@@ -21,7 +21,7 @@ to switch strategy
 ## Getting a foothold 
 since there are no connectors left on the board nor any test pads that can help  
 i decided to go through the source, connecting to the processor pins and getting  
-a connection that way, i pulled the datasheet for that processor and identified  
+a UART shell that way, i pulled the datasheet for that processor and identified  
 the UART protocol pins  
 ![T31](images/T31.png)
 
