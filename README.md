@@ -19,9 +19,9 @@ I tried most of the other test pads and still could not find the correct reading
 to switch strategy 
 
 ## Getting a foothold 
-since there are no connectors left on the board nor any test pads that can help  
-i decided to go through the source, connecting to the processor pins and getting  
-a UART shell that way, i pulled the datasheet for that processor and identified  
+Since there are no connectors left on the board nor any test pads that can help  
+I decided to go through the source, connecting to the processor pins and getting  
+a UART shell that way, I pulled the datasheet for that processor and identified  
 the UART protocol pins  
 ![T31](images/T31.png)
 
@@ -39,19 +39,19 @@ Now we can use `picocom` to get a the UART shell we are after
 ```bash
 sudo picocom -b 115200 /dev/ttyUSB0
 ```
-If nothing is done, i only got the  boot logs and no shell at the end of the booting process  
-so i had to interrupt U-Boot by pressing enter immediately.  
-When getting a U-Boot shell i firstly printed the environment args  
+If nothing is done, I only got the  boot logs and no shell at the end of the booting process  
+so I had to interrupt U-Boot by pressing enter immediately.  
+When getting a U-Boot shell I firstly printed the environment args  
 ![U-Boot_1](images/UBOOT_PRINTENV_1.png)
 The things important to us are
 * bootargs →show the init command is to run the linuxrc binary & firmware layout  (partitions and their purpose /size/slots)
 * bootcmd → The command to load the memory from flash to RAM and boot the device  
 
-To get a quick root access i can use the trick of changing the init command with `setenv` 
-so i get a shell instead of running the linuxrc binary, then i can load the memory 
+To get a quick root access I can use the trick of changing the init command with `setenv` 
+so I get a shell instead of running the linuxrc binary, then I can load the memory 
 manually and boot the device (essentially copying the bootcmd command)
 ![U-Boot_1](images/UBOOT_SETENV_2.png)
-Now when the boot will finish i will be dropped into an early shell with essentially nothing running  
+Now when the boot will finish I will be dropped into an early shell with essentially nothing running  
 on the system, so i'll run the original `linuxrc` binary in the background and check for 
 any open ports on this system 
 ![root_netstat](images/root_netstat.png)
