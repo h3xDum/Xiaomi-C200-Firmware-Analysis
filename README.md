@@ -34,10 +34,10 @@ I Used some PCBite probes & USB 2 TTL Adapter for this setup
 ![pcb_uart](images/pcb_uart.png)
 
 
-## U-Boot & Root & Firmware 
-Now we can use `minicom` to get a the UART shell we are after 
+## U-Boot & Root 
+Now we can use `picocom` to get a the UART shell we are after 
 ```bash
-sudo minicom -b 115200 /dev/ttyUSB0
+sudo picocom -b 115200 /dev/ttyUSB0
 ```
 If nothing is done, i only got the  boot logs and no shell at the end of the booting process  
 so i had to interrupt U-Boot by pressing enter immediately.  
@@ -45,4 +45,28 @@ When getting a U-Boot shell i firstly printed the environment args
 ![U-Boot_1](images/UBOOT_PRINTENV_1.png)
 The thing important to us are
 * bootargs →show the init command is to run the linuxrc binary & firmware layout  (partitions and their purpose /size/slots)
-* bootcmd → The command to load the memory from flash to ROM and boot the device 
+* bootcmd → The command to load the memory from flash to ROM and boot the device  
+
+To get a quick root access i can use the trick of changing the init command with `setenv` 
+so i get a shell instead of running the linuxrc binary, then i can load the memory 
+manually and boot the device (essentially copying the bootcmd command)
+![U-Boot_1](images/UBOOT_SETENV_2.png)
+Now when the boot will finish i will be dropped into an early shell with essentially nothing running  
+on the system, so i'll run the original `linuxrc` binary in the background and check for 
+any open ports on this system 
+![root_netstat](images/root_netstat.png)
+No luck! The camera only talks to its cloud on " _47.237.75.249_  ", no exposed web interface 
+to tinker with.
+Since reversing the cloud communication binary is out of scope for my research,  
+this is where i decided to end my research :) 
+
+## Firmware extraction 
+A little extra for anyone who is interested in playing with the firmware, here's 
+how to get it. 
+Same setup as before with the UART but this time only probing & loading the  
+memory from the flash into RAM but without booting into it.
+Then you can print the data from the RAM memory and record your terminal  
+output (with `minicom` this time) to save to a file, clean it a bit with python and get  
+the firmware, matching binwalk & bootargs help to name each section.  
+![Firmware](images/firmware.png)
+
