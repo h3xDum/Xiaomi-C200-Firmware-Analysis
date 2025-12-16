@@ -62,9 +62,9 @@ this is where i decided to end my research :)
 
 ## Firmware extraction 
 A little extra for anyone who is interested in playing with the firmware, here's 
-how to get it. 
+how to get it.  
 Same setup as before with the UART but this time only probing & loading the  
-memory from the flash into RAM but without booting into it.
+memory from the flash into RAM but without booting into it.  
 Then you can print the data from the RAM memory and record your terminal  
 output (with `minicom` this time) to save to a file, clean it a bit with python and get  
 the firmware, matching binwalk & bootargs help to name each section.  
